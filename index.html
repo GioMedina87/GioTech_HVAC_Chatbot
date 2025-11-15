@@ -3,75 +3,117 @@
 <head>
     <meta charset="UTF-8" />
     <title>GioTech HVAC Bot</title>
+
+    <!-- Simple SVG favicon with GioTech colors -->
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23facc15'/%3E%3Cstop offset='1' stop-color='%230ea5e9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='56' height='56' rx='14' fill='url(%23g)'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-size='26' fill='%230b1120' font-family='system-ui, sans-serif'%3EG%3C/text%3E%3C/svg%3E"
+    />
+
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="chat-wrapper">
-        <div class="chat-window">
-            <div class="chat-header">
-                <h1 class="giotech-title">
-                    <span class="giotech-badge">GioTech</span>
-                    <span class="giotech-product">HVAC Bot</span>
-                </h1>
-
-                <div class="header-right">
-                    <div class="status">
-                        <span class="status-dot"></span>
-                        <span class="status-text">online</span>
-                    </div>
-                    <div class="profile-tag">
-                        <span class="avatar-circle small">🤖</span>
-                        <span class="profile-name">GioTech Bot</span>
-                    </div>
-                </div>
+    <div class="app-shell">
+        <!-- Top navigation / brand bar -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <span class="nav-logo-pill">GioTech Tools</span>
+                <span class="nav-divider"></span>
+                <span class="nav-section">HVAC Bot</span>
             </div>
-
-            <!-- Top quick buttons + links -->
-            <div class="top-bar">
-                <div class="quick-actions">
-                    <button class="chip" data-text="No cooling. The AC is running but the house is not getting cold.">No Cooling</button>
-                    <button class="chip" data-text="No heat. The furnace or heater is not warming the house.">No Heat</button>
-                    <button class="chip" data-text="Weird noise from the HVAC system.">Noise Issue</button>
-                    <button class="chip" data-text="Thermostat is not working right.">Thermostat</button>
-                </div>
-                <div class="top-links">
-                    <a href="https://github.com/giomedina87" target="_blank" rel="noopener">GitHub</a>
-                    <a href="https://linkedin.com/in/giovani-medina" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
+            <div class="nav-right">
+                <nav class="nav-links">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Tools</a>
+                    <a href="#" class="nav-link active">HVAC Bot</a>
+                </nav>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">☀️</span>
+                </button>
             </div>
+        </header>
 
-            <div id="chat-messages" class="chat-messages">
-                <div class="message bot">
-                    <div class="meta">
-                        <span class="avatar-circle">🤖</span>
-                        <span class="name">GioTech Bot</span>
-                    </div>
-                    <div class="bubble">
-                        Hi! I’m your mini HVAC troubleshooting helper. 👋<br>
-                        Tell me what’s going on — like “no cooling”, “no heat”, “weird noise”, or “thermostat problem”.
+        <!-- Main chat card -->
+        <div class="chat-wrapper">
+            <div class="chat-window">
+                <div class="chat-header">
+                    <h1 class="giotech-title">
+                        <span class="giotech-badge">GioTech</span>
+                        <span class="giotech-product">HVAC Bot</span>
+                    </h1>
+
+                    <div class="header-right">
+                        <div class="status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">online</span>
+                        </div>
+                        <div class="profile-tag">
+                            <span class="avatar-circle small">🤖</span>
+                            <span class="profile-name">GioTech Bot</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="typing-indicator" class="typing hidden">
-                <span class="avatar-circle small">🤖</span>
-                <span class="typing-text">GioTech Bot is typing</span>
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-
-            <div class="chat-input-area">
-                <div class="input-shell">
-                    <input
-                        type="text"
-                        id="user-input"
-                        placeholder="Describe your HVAC issue..."
-                        autocomplete="off"
-                    />
+                <!-- Top quick buttons + links -->
+                <div class="top-bar">
+                    <div class="quick-actions">
+                        <button class="chip" data-text="No cooling. The AC is running but the house is not getting cold.">No Cooling</button>
+                        <button class="chip" data-text="No heat. The furnace or heater is not warming the house.">No Heat</button>
+                        <button class="chip" data-text="Weird noise from the HVAC system.">Noise Issue</button>
+                        <button class="chip" data-text="Thermostat is not working right.">Thermostat</button>
+                    </div>
+                    <div class="top-links">
+                        <a href="https://github.com/giomedina87" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://linkedin.com/in/giovani-medina" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
                 </div>
-                <button id="mic-btn" class="icon-btn" title="Speak your issue">🎤</button>
-                <button id="send-btn">Send</button>
+
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message bot">
+                        <div class="meta">
+                            <span class="avatar-circle">🤖</span>
+                            <span class="name">GioTech Bot</span>
+                        </div>
+                        <div class="bubble">
+                            Hi! I’m your mini HVAC troubleshooting helper. 👋<br />
+                            Tell me what’s going on — like “no cooling”, “no heat”, “weird noise”, or “thermostat problem”.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="typing-indicator" class="typing hidden">
+                    <span class="avatar-circle small">🤖</span>
+                    <span class="typing-text">GioTech Bot is typing</span>
+                    <div class="wave">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="input-shell">
+                        <input
+                            type="text"
+                            id="user-input"
+                            placeholder="Describe your HVAC issue..."
+                            autocomplete="off"
+                        />
+                    </div>
+                    <button id="mic-btn" class="icon-btn" title="Speak your issue">🎤</button>
+                    <button id="send-btn">Send</button>
+                </div>
             </div>
+
+            <!-- Floating mic button -->
+            <button id="mic-fab" class="mic-fab" title="Speak your HVAC issue">🎤</button>
         </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <span>© 2025 GioTech Graphics · Built with HTML · CSS · JavaScript</span>
+        </footer>
     </div>
 
     <script src="script.js"></script>
