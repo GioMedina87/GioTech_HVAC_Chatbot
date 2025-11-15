@@ -226,4 +226,3 @@ micBtn.addEventListener("click", () => {
     recognition.start();
 });
 
-
