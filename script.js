@@ -200,7 +200,7 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
     });
 
     recognition.addEventListener("error", () => {
-        // You can show a small message if you ever want.
+        // optional: handle error UI
     });
 } else {
     // If not supported, visually soften mic button
@@ -212,3 +212,4 @@ micBtn.addEventListener("click", () => {
     if (!recognition) return;
     recognition.start();
 });
+
