@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>GioTech HVAC Bot</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="chat-wrapper">
+        <div class="chat-window">
+            <div class="chat-header">
+                <h1>GioTech HVAC Bot</h1>
+                <span class="status-dot"></span>
+                <span class="status-text">online</span>
+            </div>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot">
+                    Hi! I’m your mini HVAC troubleshooting helper. 👋<br>
+                    Tell me what’s going on — like “no cooling”, “no heat”, “weird noise”, or “thermostat problem”.
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Describe your HVAC issue..."
+                />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
